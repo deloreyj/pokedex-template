@@ -1,0 +1,29 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "rest-api-template",
+  "main": "src/index.ts",
+  "compatibility_date": "2024-11-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "durable_objects": {
+    "bindings": [
+      {
+        "class_name": "Pokedex",
+        "script_name": "rest-api-template",
+        "name": "POKEDEX"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["Pokedex"]
+    }
+  ],
+  "services": [
+    {
+      "binding": "POKEMON_SERVICE",
+      "service": "rest-api-template",
+      "entrypoint": "PokemonService"
+    }
+  ]
+}
